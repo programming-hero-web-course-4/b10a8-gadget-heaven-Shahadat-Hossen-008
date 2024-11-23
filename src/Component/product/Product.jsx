@@ -1,5 +1,7 @@
+import { Link } from "react-router";
+
 export default function Product({ product }) {
-    const{product_title, product_image, price}= product;
+    const{product_id, product_title, product_image, price}= product;
   return (
     <div className="card bg-base-100 w-96 shadow-xl">
       <figure className="px-10 pt-10">
@@ -13,7 +15,7 @@ export default function Product({ product }) {
         <h2 className="card-title">{product_title}</h2>
         <p className="text-sm font-light text-gray-500">Price: {price}$</p>
         <div className="card-actions">
-          <button className="btn  btn-outline text-banner_color rounded-3xl">View Details</button>
+          <Link to={`products/${product_id}`}><button className="btn  btn-outline text-banner_color rounded-3xl">View Details</button></Link>
         </div>
       </div>
     </div>

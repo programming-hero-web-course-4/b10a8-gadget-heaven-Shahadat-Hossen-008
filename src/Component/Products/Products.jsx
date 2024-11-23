@@ -38,9 +38,9 @@ export default function Products() {
       </h2>
       <div className="grid md:grid-cols-6 gap-4">
         <div className="col-span-1 grid grid-cols-1 h-fit gap-4 bg-slate-50 p-4 shadow-xl rounded-xl">
-          {btns.map((btn) => (
+          {btns.map((btn, index) => (
             <button 
-            key={btn}
+            key={index}
             className="btn btn-outline text-banner_color rounded-3xl"
             onClick={()=>handlFilterProduct(btn)}>
               {btn}
@@ -51,7 +51,7 @@ export default function Products() {
           {filterProduct.length>0?
           filterProduct.map((product) => (
             <Product key={product.id} product={product}></Product>
-          )): <p className="text-4xl text-fuchsia-700">No products found</p>}
+          )): <p className="text-5xl text-fuchsia-700">No products found</p>}
         </div>
       </div>
     </div>
