@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-        <footer className="w-11/12 mx-auto">
+        <footer className="w-11/12 mx-auto mb-20">
            <div className="text-center mb-7">
            <h2 className="text-3xl font-bold text-black mb-3">Gadget Buy</h2>
             <p className="text-sm text-gray-600 font-thin">
