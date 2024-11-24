@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
@@ -23,9 +23,11 @@ export default function ProductsDetails() {
   const handleAddToCartList = (id)=>{
     addToStoreProduct(id);
   }
-
+   const[active, setActive]= useState(false)
   const handleWishList = (id)=>{
     addToWhishList(id);
+    setActive(true);
+    
   }
 
   return (
@@ -86,7 +88,9 @@ export default function ProductsDetails() {
             onClick={()=>handleAddToCartList(product_id)}
             className="btn bg-banner_color text-white rounded-3xl items-center"
             >Add To Card<CiShoppingCart className="text-2xl font-bold" /></button>
-           <button onClick={()=>handleWishList(product_id)}
+           <button 
+           disabled ={active===true}
+           onClick={()=>handleWishList(product_id)}
            className="btn"> <CiHeart className="text-2xl" /></button>
             </div>
            </div>

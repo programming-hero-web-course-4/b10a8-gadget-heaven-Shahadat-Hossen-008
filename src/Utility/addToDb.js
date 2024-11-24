@@ -13,7 +13,7 @@ const getStoreProduct = ()=>{
  const addToStoreProduct = (id)=>{
      const storedProduct = getStoreProduct();
      if(storedProduct.includes(id)){
-        console.log(id);
+        toast.warning("Product already exist")
      }
      else{
         storedProduct.push(id);

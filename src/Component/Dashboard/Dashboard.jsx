@@ -45,8 +45,9 @@ export default function Dashboard() {
 const navigate = useNavigate();
     const handlePurchasesbtn = ()=>{
       Swal.fire({
-        title: "Good job!",
-        text: "You clicked the button!",
+        title: "Payment Successfully",
+        text:"Thanks for purchasing",
+        text: `Total: $${totalCost}`,
         icon: "success"
       });
       setCartList([]);
