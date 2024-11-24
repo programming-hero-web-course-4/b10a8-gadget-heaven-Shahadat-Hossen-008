@@ -86,7 +86,8 @@ export default function ProductsDetails() {
             onClick={()=>handleAddToCartList(product_id)}
             className="btn bg-banner_color text-white rounded-3xl items-center"
             >Add To Card<CiShoppingCart className="text-2xl font-bold" /></button>
-           <button onClick={()=>handleWishList(product_id)}> <CiHeart className="text-2xl" /></button>
+           <button onClick={()=>handleWishList(product_id)}
+           className="btn"> <CiHeart className="text-2xl" /></button>
             </div>
            </div>
           </div>

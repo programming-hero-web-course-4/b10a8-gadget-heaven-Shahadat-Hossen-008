@@ -5,8 +5,11 @@ import { PiSortDescendingBold } from "react-icons/pi";
 import { getStoreProduct } from "../../Utility/addToDb";
 import { getStoredWishlistProduct } from "../../Utility/addToWhishList";
 
+
+
 export default function Dashboard() {
   const [view, setView] = useState("Cart");
+  const [productPrice, setProductPrice] = useState(0)
   const allProduct = useLoaderData();
   const [cartList, setCartList] = useState([]);
   const [wishlist, setWishlist] = useState([]);
@@ -17,7 +20,9 @@ export default function Dashboard() {
       storedProductInt.includes(product.product_id)
     );
     setCartList(addToCart);
+    
   }, []);
+  
 
   useEffect(()=>{
     const addToWishlist = getStoredWishlistProduct();
@@ -53,13 +58,14 @@ export default function Dashboard() {
         >
           Wishlist
         </button>
-      </div>
-      <div className="bg-white p-8">
+        <div className="bg-slate-100 p-8">
         <div className=" flex justify-between items-center w-11/12 mx-auto">
-          <h3 className="text-xl text-black">{view}</h3>
+          <h3 className="text-2xl text-black font-light">{view}</h3>
           {view === "Cart" && (
             <div className="flex justify-between items-center gap-2">
-              <p className="text-2xl font-extrabold text-black">Total cost: </p>
+              <p className="text-2xl font-extrabold text-black">
+                Total cost: $
+              </p>
               <button className="btn btn-outline text-banner_color rounded-3xl">
                 Sort by Price
                 <PiSortDescendingBold />
@@ -71,9 +77,12 @@ export default function Dashboard() {
           )}
         </div>
       </div>
+      </div>
       {view === "Cart" &&
         cartList.map((cart) => <Cart key={cart.product_id} cart={cart}></Cart>)}
-      {view === "Wishlist" && wishlist.map((wish) => <Cart key={wish.product_id} cart={wish}></Cart>)}
+      {view === "Wishlist" && wishlist.map((wish) => <Cart key={wish.product_id}
+      view={view}
+       cart={wish}></Cart>)}
     </div>
   );
 }

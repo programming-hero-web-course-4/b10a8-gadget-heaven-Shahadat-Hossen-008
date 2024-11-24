@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const getStoreProduct = ()=>{
     const storedStrProduct = localStorage.getItem("Product-list");
     if(storedStrProduct){
@@ -17,6 +19,7 @@ const getStoreProduct = ()=>{
         storedProduct.push(id);
         const storedStrProduct = JSON.stringify(storedProduct);
         localStorage.setItem("Product-list", storedStrProduct);
+        toast.success('This product add to your cart list')
      }
  }
 
