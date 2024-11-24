@@ -3,7 +3,7 @@
 <p>Welcome to GadgetBuy website. This website is created for E-commerce preview. Where customer can see different type of product and see each product details. Here customer can their favourite choices.</p>
 <h3>Requirement Doc: https://github.com/ProgrammingHero1/B10-A8-gadget-heaven/blob/main/Batch-10_Assignment-08.pdf</h3>
 
-<h3>Live website: https://roaring-crostata-763032.netlify.app/+</h3>
+<h3>Live website: https://roaring-crostata-763032.netlify.app/</h3>
 
 <br>
 <h2>React fundemental concept used in this project:</h2>
