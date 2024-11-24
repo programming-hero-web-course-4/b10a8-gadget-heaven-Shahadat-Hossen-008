@@ -1,4 +1,5 @@
 import { TiDeleteOutline } from "react-icons/ti";
+import { clearedStoredProduct } from "../../Utility/addToDb";
 
 export default function Cart({ cart }) {
     
@@ -12,7 +13,8 @@ export default function Cart({ cart }) {
           <p className="text-sm text-gray-500 mb-5">{description}</p>
           <p>Price: ${price}</p>
         </div>
-        <div className="text-3xl">
+        <div
+         className="text-3xl">
           <TiDeleteOutline />
         </div>
       </div>

@@ -32,7 +32,7 @@ export default function Products() {
  
 
   return (
-    <div className="mt-96 w-11/12 mx-auto">
+    <div className="mt-12 w-11/12 mx-auto">
       <h2 className="text-4xl text-banner_color font-extrabold text-center mb-12">
         Explore Cutting-Edge Gadgets
       </h2>

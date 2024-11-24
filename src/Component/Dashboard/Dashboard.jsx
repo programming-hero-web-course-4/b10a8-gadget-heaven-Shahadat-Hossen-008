@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import Cart from "../Cart/Cart";
 import { PiSortDescendingBold } from "react-icons/pi";
-import { getStoreProduct } from "../../Utility/addToDb";
+import { clearedStoredProduct, getStoreProduct } from "../../Utility/addToDb";
 import { getStoredWishlistProduct } from "../../Utility/addToWhishList";
+import Swal from 'sweetalert2';
 
 
 
 export default function Dashboard() {
+
   const [view, setView] = useState("Cart");
   const allProduct = useLoaderData();
   const [cartList, setCartList] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const[productPrice, setProductPrice] = useState(0);
+   // Load cart and wishlist data
   useEffect(() => {
     const storedProduct = getStoreProduct();
     const storedProductInt = storedProduct.map((id) => parseInt(id));
@@ -30,14 +33,27 @@ export default function Dashboard() {
     const addWishlist = allProduct.filter((product) => wishlistProductInt.includes(product.product_id) );
     setWishlist(addWishlist);
   },[])
-
+ // Sort cart by price
   const handleSort = () =>{
      const sortedCartList = [...cartList].sort((a,b)=>b.price - a.price);
      setCartList(sortedCartList);
   }
-
+// Calculate total cost
   const totalCost = cartList.reduce((sum, product)=>sum+product.price ,0);
   
+// Handle purchase button click
+const navigate = useNavigate();
+    const handlePurchasesbtn = ()=>{
+      Swal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success"
+      });
+      setCartList([]);
+      clearedStoredProduct();
+      navigate('/')
+
+    }
   return (
     <div className="bg-banner_color text-center mb-12">
       <h2 className="text-3xl text-white pt-7">Dashboard</h2>
@@ -72,7 +88,7 @@ export default function Dashboard() {
           {view === "Cart" && (
             <div className="flex justify-between items-center gap-2">
               <p className="text-xl font-extrabold text-black mr-3">
-                Total cost: ${totalCost}
+                Total cost: ${totalCost.toFixed(2)}
               </p>
               <button 
               onClick={handleSort}
@@ -80,7 +96,9 @@ export default function Dashboard() {
                 Sort by Price
                 <PiSortDescendingBold />
               </button>
-              <button className="bg-banner_color btn rounded-3xl text-white">
+              <button
+              onClick={handlePurchasesbtn}
+               className="bg-banner_color btn rounded-3xl text-white">
                 Purchase
               </button>
             </div>

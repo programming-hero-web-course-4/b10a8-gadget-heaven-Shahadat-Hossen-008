@@ -13,6 +13,7 @@ import Statistics from './Component/Statistics/Statistics';
 import ProductsDetails from './Component/ProductsDetails/ProductsDetails';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Gadget from './Component/Gadget/Gadget';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         path: "/statistics",
         element: <Statistics></Statistics>
       },
+      {
+        path: "/product",
+        element: <Gadget></Gadget>
+      }
     ],
   },
 ])

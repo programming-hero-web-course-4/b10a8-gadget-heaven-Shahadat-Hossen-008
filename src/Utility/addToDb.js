@@ -22,5 +22,8 @@ const getStoreProduct = ()=>{
         toast.success('This product add to your cart list')
      }
  }
+ const clearedStoredProduct = ()=>{
+    localStorage.removeItem('Product-list')
+ }
 
- export {addToStoreProduct, getStoreProduct};
+ export {addToStoreProduct, getStoreProduct, clearedStoredProduct};
