@@ -20,4 +20,4 @@ const getStoreProduct = ()=>{
      }
  }
 
- export {addToStoreProduct};
+ export {addToStoreProduct, getStoreProduct};

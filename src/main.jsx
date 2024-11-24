@@ -24,11 +24,12 @@ const router = createBrowserRouter([
       {
         path: "products/:productId",
         element: <ProductsDetails></ProductsDetails>,
-        loader: ()=> fetch('./product.json')
+        loader: ()=> fetch('/product.json')
       },
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
+        loader: ()=> fetch('/product.json')
       },
       {
         path: "/statistics",

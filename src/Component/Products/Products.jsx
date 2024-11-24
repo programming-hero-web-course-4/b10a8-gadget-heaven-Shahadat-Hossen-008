@@ -17,19 +17,19 @@ export default function Products() {
     "Headphones",
     "Smartwaatch",
   ];
-
+  const[activeBtn, setActiveBtn]=useState('All product');
   const [filterProduct, setFilterProduct] = useState([]);
   const handlFilterProduct =(category)=>{
+    setActiveBtn(category);
    if(category ==="All product"){
     setFilterProduct(products);
    }
    else{
     const filter = products.filter(product => product.category === category);
     setFilterProduct(filter);
-   }
-
-    
+   }  
   }
+ 
 
   return (
     <div className="mt-96 w-11/12 mx-auto">
@@ -41,7 +41,7 @@ export default function Products() {
           {btns.map((btn, index) => (
             <button 
             key={index}
-            className="btn btn-outline text-banner_color rounded-3xl"
+            className={`btn btn-outline rounded-3xl ${activeBtn===btn?'bg-banner_color text-white':''}`}
             onClick={()=>handlFilterProduct(btn)}>
               {btn}
             </button>

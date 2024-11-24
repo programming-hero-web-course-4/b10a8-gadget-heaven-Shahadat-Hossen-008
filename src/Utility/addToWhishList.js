@@ -1,4 +1,4 @@
-const getStoredProduct = () =>{
+const getStoredWishlistProduct = () =>{
     const storedStrProduct = localStorage.getItem("whish-list");
     if(storedStrProduct){
         const storedProduct = JSON.parse(storedStrProduct);
@@ -9,7 +9,7 @@ const getStoredProduct = () =>{
     }
 }
  const addToWhishList = (id) =>{
-    const storedProduct = getStoredProduct();
+    const storedProduct = getStoredWishlistProduct();
     if(storedProduct.includes(id)){
         console.log(id);
     }
@@ -19,4 +19,4 @@ const getStoredProduct = () =>{
         localStorage.setItem('whish-list', storedStrProduct);
     }
  }
- export{addToWhishList};
+ export{addToWhishList, getStoredWishlistProduct};
