@@ -9,10 +9,10 @@ import { getStoredWishlistProduct } from "../../Utility/addToWhishList";
 
 export default function Dashboard() {
   const [view, setView] = useState("Cart");
-  const [productPrice, setProductPrice] = useState(0)
   const allProduct = useLoaderData();
   const [cartList, setCartList] = useState([]);
   const [wishlist, setWishlist] = useState([]);
+  const[productPrice, setProductPrice] = useState(0);
   useEffect(() => {
     const storedProduct = getStoreProduct();
     const storedProductInt = storedProduct.map((id) => parseInt(id));
@@ -30,6 +30,14 @@ export default function Dashboard() {
     const addWishlist = allProduct.filter((product) => wishlistProductInt.includes(product.product_id) );
     setWishlist(addWishlist);
   },[])
+
+  const handleSort = () =>{
+     const sortedCartList = [...cartList].sort((a,b)=>b.price - a.price);
+     setCartList(sortedCartList);
+  }
+
+  const totalCost = cartList.reduce((sum, product)=>sum+product.price ,0);
+  
   return (
     <div className="bg-banner_color text-center mb-12">
       <h2 className="text-3xl text-white pt-7">Dashboard</h2>
@@ -37,12 +45,12 @@ export default function Dashboard() {
         Explore the latest gadgets that will take your experience to the next
         level. From smart devices to the coolest accessories, we have it all!
       </p>
-      <div className="pb-12">
+      <div>
         <button
           onClick={() => {
             setView("Cart");
           }}
-          className={`btn btn-outline text-white rounded-3xl mr-6 w-[10%] ${
+          className={`btn btn-outline text-white rounded-3xl mr-6 w-[10%] mb-5 ${
             view === "Cart" ? "bg-stone-900 text-white" : ""
           }`}
         >
@@ -63,10 +71,12 @@ export default function Dashboard() {
           <h3 className="text-2xl text-black font-light">{view}</h3>
           {view === "Cart" && (
             <div className="flex justify-between items-center gap-2">
-              <p className="text-2xl font-extrabold text-black">
-                Total cost: $
+              <p className="text-xl font-extrabold text-black mr-3">
+                Total cost: ${totalCost}
               </p>
-              <button className="btn btn-outline text-banner_color rounded-3xl">
+              <button 
+              onClick={handleSort}
+              className="btn btn-outline text-banner_color rounded-3xl">
                 Sort by Price
                 <PiSortDescendingBold />
               </button>
