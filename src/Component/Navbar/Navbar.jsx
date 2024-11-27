@@ -1,17 +1,21 @@
 import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
-import { NavLink, useLocation } from "react-router";
+import { Meta, NavLink, useLocation } from "react-router";
 import Banner from "../Banner/Banner";
+import { Helmet } from "react-helmet-async";
 
 export default function Navbar() {
   const location = useLocation();
-  const {pathname} = location;
-  console.log(pathname);
-  
-  
+  const { pathname } = location;
 
   return (
-    <div className={`${pathname === "/" ?"bg-banner_color text-white rounded-xl m-3":"bg-white"}`}>
+    <div
+      className={`${
+        pathname === "/"
+          ? "bg-banner_color text-white rounded-xl m-3"
+          : "bg-white"
+      }`}
+    >
       <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -36,17 +40,17 @@ export default function Navbar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/product">Product</NavLink>
-            </li>
-            <li>
-              <NavLink to="/statistics">Statistics</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard">Dashboard</NavLink>
-            </li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/product">Product</NavLink>
+              </li>
+              <li>
+                <NavLink to="/statistics">Statistics</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard">Dashboard</NavLink>
+              </li>
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">GadgetBuy</a>
@@ -57,8 +61,8 @@ export default function Navbar() {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/product">Product</NavLink>
-            </li>
+                <NavLink to="/product">Product</NavLink>
+              </li>
             <li>
               <NavLink to="/statistics">Statistics</NavLink>
             </li>
@@ -69,16 +73,14 @@ export default function Navbar() {
         </div>
         <div className="navbar-end">
           <button className="mr-2">
-          <CiShoppingCart className="text-4xl bg-white text-black rounded-full p-2" />
+            <CiShoppingCart className="text-4xl bg-white text-black rounded-full p-2" />
           </button>
           <button className="">
-          <CiHeart className="text-4xl rounded-full bg-white text-black p-2" />
+            <CiHeart className="text-4xl rounded-full bg-white text-black p-2" />
           </button>
         </div>
       </div>
-      {
-        pathname === "/"&&<Banner></Banner>
-      }
+      {pathname === "/" && <Banner></Banner>}
     </div>
   );
 }

@@ -14,7 +14,7 @@
       "15.6-inch FHD display"
     ],
     "availability": true,
-    "rating": 4.8
+    "rating": 8.8
   },
   {
     "product_id": 202,
@@ -31,7 +31,7 @@
       "256GB storage"
     ],
     "availability": true,
-    "rating": 4.9
+    "rating": 8.9
   },
   {
     "product_id": 203,
@@ -48,7 +48,7 @@
       "Lightweight design"
     ],
     "availability": false,
-    "rating": 4.0
+    "rating": 8.0
   },
   {
     "product_id": 204,
@@ -65,7 +65,7 @@
       "Fingerprint sensor"
     ],
     "availability": true,
-    "rating": 4.6
+    "rating": 8.6
   },
   {
     "product_id": 205 ,
@@ -82,7 +82,7 @@
       "24-hour battery life"
     ],
     "availability": true,
-    "rating": 4.4
+    "rating": 8.4
   },
   {
     "product_id": 206,
@@ -99,7 +99,7 @@
       "Android 11"
     ],
     "availability": true,
-    "rating": 4.2
+    "rating": 8.2
   },
   {
     "product_id": 207,
@@ -116,7 +116,7 @@
       "Comfortable ear pads"
     ],
     "availability": true,
-    "rating": 4.7
+    "rating": 8.7
   },
   {
     "product_id": 208,
@@ -133,7 +133,7 @@
       "Android 12"
     ],
     "availability": true,
-    "rating": 4.5
+    "rating": 8.5
   },
   {
     "product_id": 209,
@@ -150,7 +150,7 @@
       "Windows 11"
     ],
     "availability": false,
-    "rating": 4.3
+    "rating": 8.3
   },
   {
     "product_id": 210,
@@ -161,7 +161,7 @@
     "description": "The Apple MacBook Air with M2 chip provides blazing speed and efficiency with a fanless design.",
     "Specification": ["13.6-inch Retina display", "M2 chip", "512GB SSD", "16GB RAM", "18-hour battery life"],
     "availability": true,
-    "rating": 4.9
+    "rating": 8.9
   },
   {
     "product_id": 211,
@@ -172,6 +172,6 @@
     "description": "The Samsung Galaxy S23 features a stunning display, powerful processor, and cutting-edge camera.",
     "Specification": ["6.1-inch AMOLED display", "256GB storage", "8GB RAM", "Snapdragon 8 Gen 2 processor", "5000mAh battery"],
     "availability": true,
-    "rating": 4.8
+    "rating": 8.8
   }
 ]

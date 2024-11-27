@@ -15,6 +15,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Gadget from './Component/Gadget/Gadget';
 import Errorpage from './Component/ErrorPage/Errorpage';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -38,19 +39,22 @@ const router = createBrowserRouter([
       },
       {
         path: "/statistics",
-        element: <Statistics></Statistics>
+        element: <Statistics></Statistics>,
+        loader: ()=> fetch('/product.json')
       },
       {
         path: "/product",
         element: <Gadget></Gadget>
-      }
+      },
     ],
   },
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+   <HelmetProvider>
    <RouterProvider router={router}></RouterProvider>
    <ToastContainer />
+   </HelmetProvider>
   </StrictMode>,
 )

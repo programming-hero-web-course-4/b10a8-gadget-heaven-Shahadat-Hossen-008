@@ -22,4 +22,5 @@ const getStoredWishlistProduct = () =>{
         toast.success('This product add to your wishlist')
     }
  }
+ 
  export{addToWhishList, getStoredWishlistProduct};
